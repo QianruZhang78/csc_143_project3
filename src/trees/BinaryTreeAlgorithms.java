@@ -161,6 +161,29 @@ public class BinaryTreeAlgorithms {
      */
     public static <T> LinkedList<BinaryNode.Direction> path(BinaryNode<T> root, T value) {
         /* YOUR CODE HERE */
-        return null;
+        LinkedList<BinaryNode.Direction> result = new LinkedList<>();
+        boolean find = pathHelper(root, value, result);
+        return find ? result : null;
+    }
+
+    private static <T> boolean pathHelper(BinaryNode<T> root, T value, LinkedList<BinaryNode.Direction> result) {
+        if (root == null) {
+            return false;
+        }
+        if (root.payload.equals(value)) {
+            return true;
+        }
+        boolean left = pathHelper(root.left, value, result);
+        if (left) {
+            result.push(BinaryNode.Direction.left);
+            return true;
+        }
+        boolean right = pathHelper(root.right, value, result);
+
+        if (right) {
+            result.push(BinaryNode.Direction.right);
+            return true;
+        }
+        return false;
     }
 }
