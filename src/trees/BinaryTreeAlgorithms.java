@@ -102,7 +102,16 @@ public class BinaryTreeAlgorithms {
      */
     public static boolean equals(BinaryNode<Integer> A, BinaryNode<Integer> B) {
         /* YOUR CODE HERE */
-        return false;
+        if (A == null && B == null) {
+            return true;
+        }
+        if (A == null || B == null) {
+            return false;
+        }
+        if (!A.payload.equals(B.payload)) {
+            return false;
+        }
+        return equals(A.left, B.left) && equals(A.right, B.right);
     }
 
     /**
