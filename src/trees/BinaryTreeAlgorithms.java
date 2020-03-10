@@ -14,7 +14,18 @@ public class BinaryTreeAlgorithms {
      */
     public static <T> List<T> preOrder(BinaryNode<T> root) {
         /* YOUR CODE HERE */
-        return null;
+        List<T> list = new ArrayList<>();
+        preOrderHelper(list, root);
+        return list;
+    }
+
+    private static <T> void preOrderHelper(List<T> result, BinaryNode<T> root) {
+        if (root == null) {
+            return;
+        }
+        result.add(root.payload);
+        preOrderHelper(result, root.left);
+        preOrderHelper(result, root.right);
     }
 
     /**
@@ -25,7 +36,18 @@ public class BinaryTreeAlgorithms {
      */
     public static <T> List<T> inOrder(BinaryNode<T> root) {
         /* YOUR CODE HERE */
-        return null;
+        List<T> list = new ArrayList<>();
+        inOrderHelper(list, root);
+        return list;
+    }
+
+    private static <T> void inOrderHelper(List<T> result, BinaryNode<T> root) {
+        if (root == null) {
+            return;
+        }
+        inOrderHelper(result, root.left);
+        result.add(root.payload);
+        inOrderHelper(result, root.right);
     }
 
     /**
@@ -36,7 +58,18 @@ public class BinaryTreeAlgorithms {
      */
     public static <T> List<T> postOrder(BinaryNode<T> root) {
         /* YOUR CODE HERE */
-        return null;
+        List<T> list = new ArrayList<>();
+        postOrderHelper(list, root);
+        return list;
+    }
+
+    private static <T> void postOrderHelper(List<T> result, BinaryNode<T> root) {
+        if (root == null) {
+            return;
+        }
+        postOrderHelper(result, root.left);
+        postOrderHelper(result, root.right);
+        result.add(root.payload);
     }
 
     /**
