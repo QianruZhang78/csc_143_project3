@@ -80,7 +80,16 @@ public class BinaryTreeAlgorithms {
      */
     public static BinaryNode<Integer> binarySearch(BinaryNode<Integer> root, Integer value) {
         /* YOUR CODE HERE */
-        return null;
+        if (root == null) {
+            return null;
+        }
+        if (root.payload.equals(value)) {
+            return root;
+        } else if (value < root.payload) {
+            return binarySearch(root.left, value);
+        } else {
+            return  binarySearch(root.right, value);
+        }
     }
 
     /**
