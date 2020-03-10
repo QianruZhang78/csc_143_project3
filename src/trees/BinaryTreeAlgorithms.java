@@ -88,7 +88,7 @@ public class BinaryTreeAlgorithms {
         } else if (value < root.payload) {
             return binarySearch(root.left, value);
         } else {
-            return  binarySearch(root.right, value);
+            return binarySearch(root.right, value);
         }
     }
 
@@ -100,7 +100,24 @@ public class BinaryTreeAlgorithms {
      */
     public static BinaryNode<Integer> insert(BinaryNode<Integer> root, Integer value) {
         /* YOUR CODE HERE */
-        return null;
+        if (root == null) {
+            return new BinaryNode<>(value);
+        }
+        if (root.payload.equals(value)) {
+            return root;
+        } else if (root.payload > value) {
+            BinaryNode<Integer> result = insert(root.left, value);
+            if (root.left == null && result != null) {
+                root.left = result;
+            }
+            return result;
+        } else {
+            BinaryNode<Integer> result = insert(root.right, value);
+            if (root.right == null && result != null) {
+                root.right = result;
+            }
+            return result;
+        }
     }
 
     /**
